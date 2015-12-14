@@ -1,0 +1,24 @@
+---
+# user: ubuntu
+# group: ubuntu
+# pid: tmp/pids/thin.pid
+timeout: 30
+wait: 30
+log: log/thin.log
+max_conns: 1024
+servers: 1
+require: []
+environment: development
+max_persistent_conns: 512
+threaded: true
+threadpool-size: 50
+no-epoll: true
+daemonize: true
+# socket: tmp/sockets/thin.sock
+chdir: /home/ubuntu/git/competitive-programming-calendar/calendar
+tag: calendar
+ssl: false
+#ssl-key-file: server.key
+#ssl-cert-file: server.crt
+port: 3000
+address: 0.0.0.0

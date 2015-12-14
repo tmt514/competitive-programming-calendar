@@ -9,6 +9,21 @@
 /test/version_tmp/
 /tmp/
 
+/calendar/tmp/
+/calendar/server.*
+/calendar/log/
+!/calendar/log/.keep
+# Ignore bundler config.
+/calendar/.bundle
+*.swp
+*.swo
+*.~
+*.un~
+
+# Ignore the default SQLite database.
+/calendar/db/*.sqlite3
+/calendar/db/*.sqlite3-journal
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history

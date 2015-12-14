@@ -1,0 +1,84 @@
+
+.content-row
+  h1.padding-30 The Collaborative Blog of Competitive Programming
+
+.content-row
+  .calendar-box
+    .calendar-title
+      .item-6
+        h2 #{@year} 年 #{@month} 月
+      .login-box
+        - if current_user == nil
+          p
+            a(href="/auth/facebook")
+              img.login-btn(src="https://www.facebookbrand.com/img/fb-art.jpg")
+        - else
+          p
+            img.login-btn(src="#{current_user.image}")
+            span
+              | #{current_user.name}
+    .calendar-week
+      - for day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] do
+        .calendar-header(class="#{day}")
+          span
+            | #{day}
+    - for week in @weeks do
+      .calendar-week
+        - for obj in week do
+          .calendar-day(class="weekday-#{obj[:date].cwday} #{obj[:date].month == @month ? 'thismonth' : 'othermonth'}" data-entry="entry-#{obj[:entry] ? obj[:entry].id : 'none'}")
+            .daynum
+              span #{obj[:date].day}
+            .avatar
+              - if obj[:entry]
+                img.entry-img(src="#{obj[:entry].user.image}")
+            .displayname
+              - if obj[:entry]
+                span #{obj[:entry].user.displayname}
+              - elsif current_user != nil and obj[:open] == true
+                button.ui.icon.button(data-date="#{obj[:date]}")
+                  i.write.icon
+                  | #{hash_decoy_text(obj[:date])}
+
+.content-row
+  .entry-box
+    .calendar-title
+      .item-6
+        h2 文章列表
+    - for entry in @entries do
+      .entry(id="entry-#{entry.id}" data-date="#{show_date(entry.target)}")
+        .entry-date
+          span #{show_month_date(entry.target)}
+        .entry-author
+          img(src="#{entry.user.image}")
+          span #{entry.user.displayname}
+        .entry-message(data-msg="#{entry.message}", data-url="#{entry.url}")
+          .msg
+            i.comment.icon
+            span #{entry.message}
+          - if is_valid_url(entry.url)
+            .url
+              i.linkify.icon
+              a(href="#{entry.url}") #{entry.url}
+        .entry-edit
+          - if current_user != nil and current_user.id == entry.user.id
+            i.large.edit.icon.edit-entry-icon(data-entryid="entry-#{entry.id}")
+            
+.ui.modal
+  .header
+    | 認領日曆上的一天
+  .content
+    = form_for @new_entry, html: {class: 'ui form'} do |entry|
+      input#entryId(name="entry_id" type="hidden")
+      .field
+        label 認領日期
+        input#targetDateInput(name="entry[target]" type="date")
+      .field
+        label 訊息/主題
+        textarea#messageInput(name="entry[message]")
+      .field
+        label 部落格/文章連結網址
+        input#urlInput(name="entry[url]" type="url")
+    .actions
+      .ui.approve.blue.button(type="submit") 新增
+      .ui.cancel.button(type="cancel") 取消
+

@@ -1,0 +1,216 @@
+// Place all the styles related to the calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import "semantic-ui";
+
+$bg-holiday: #FFCCCC;
+$fg-holiday: #FFDDDD;
+$bg-weekend: #CCCCFF;
+
+body {
+  background-color: #EEE;
+}
+.padding-30 {
+  padding: 30;
+}
+.content-row {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, sans-serif;
+}
+
+.calendar-box {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  max-width: 1120px;
+  min-width: 600px;
+}
+.calendar-title {
+  min-height: 60px;
+  border-top: 3px solid #DDCC88;
+  display: flex;
+  flex: 1 1 auto;
+  background-color: #FFEEAA;
+  padding-left: 30px;
+}
+.calendar-week {
+  display: flex;
+  flex: 1 1 auto;
+}
+.calendar-header {
+  font-size: 130%;
+  font-weight: bold;
+  min-height: 30px;
+  line-height: 30px;
+  margin: 1px;
+  padding: 5px;
+  flex: 1 1 0;
+}
+.calendar-day {
+  position: relative;
+  font-size: 200%;
+  font-family: 'Nunito', sans-serif;
+  min-height: 130px;
+  margin: 1px;
+  padding: 12px 8px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  &.holiday {
+    font-color: $fg-holiday;
+  }
+  &.thismonth {
+    background-color: white;
+  }
+  &.othermonth {
+    color: #AAA;
+  }
+  
+  .daynum {
+    flex: 0 1 auto;
+  }
+  .avatar {
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: center;
+    img.entry-img {
+      border-radius: 50%;
+      flex: 0 1 auto;
+    }
+  }
+  .displayname {
+    font-size: 50%;
+    font-family: sans-serif;
+    font-weight: 100;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      flex: 0 1 auto;
+    }
+  }
+}
+.Sun {
+  background-color: $bg-holiday;
+}
+.Sat {
+  background-color: $bg-weekend;
+}
+.Mon, .Tue, .Wed, .Thu, .Fri {
+  background-color: #DDD;
+}
+.item-6 {
+  flex: 6 1 auto;
+  align-self: center;
+}
+.login-box {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  padding-right: 30px;
+  align-self: center;
+  p {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    span {
+      padding-left: 10px;
+      font-size: 100%;
+      flex: 0 1 auto;
+    }
+    img {
+      flex: 0 1 auto;
+      border-radius: 5px;
+    }
+  }
+}
+.login-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.entry-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  max-width: 1120px;
+  min-width: 600px;
+}
+
+.entry {
+  display: flex;
+  flex: 0 1 auto;
+  margin: 1px;
+  padding: 20px 0;
+  background-color: #F5F5F5;
+  font-size: 130%;
+  color: #555;
+}
+
+.entry-date {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    flex: 0 1 auto;
+  }
+}
+.entry-author {
+  flex: 3 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  img {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin-right: 7px;
+    flex: 0 1 auto;
+  }
+  span {
+    flex: 0 1 auto;
+  }
+}
+.entry-message {
+  flex: 8 1 0;
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    flex: 0 1 auto;
+    padding-bottom: 5px;
+    i {
+      flex: 0 0 auto;
+    }
+    span {
+      flex: 1 1 auto;
+    }
+  }
+}
+.entry-edit {
+  flex: 0 1 auto;
+}
+.watching {
+  background-color: #DDEEDD;
+}
+.calendar-day-with-entry {
+  &:hover {
+    cursor: pointer;
+    background-color: #FFFFEE;
+  }
+}
+.edit-entry-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}

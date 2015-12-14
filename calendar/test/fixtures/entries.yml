@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  calendarid: MyString
+  target: 2015-12-12 22:53:51
+  message: MyString
+  url: MyString
+
+two:
+  uid: MyString
+  calendarid: MyString
+  target: 2015-12-12 22:53:51
+  message: MyString
+  url: MyString
