@@ -6,7 +6,8 @@
   .calendar-box
     .calendar-title
       .item-6
-        h2 #{@year} 年 #{@month} 月
+        h2
+          | #{@year} 年 #{@month} 月
       .login-box
         - if current_user == nil
           p

@@ -24,13 +24,15 @@ class CalendarController < ApplicationController
     # make a calendar
     today = Date.today()
     @weeks = []
+    @total_count = 0
     now = Date.new(@year, @month, 1)
     now -= now.cwday % 7
     for w in 0..5
       week = []
       for i in 0..6
-        entry = Entry.where("target >= :today AND target < :tomorrow", {today: now, tomorrow: now+1}).first;
+        entry = Entry.where("target >= :today AND target < :tomorrow", {today: now, tomorrow: now+1}).first
         entry = nil if now.month != @month
+        @total_count += 1 if now.month == @month
         @entries << entry if entry != nil
         week << { date: now, entry: entry, open: (now >= today and now.month == @month) }
         now += 1
