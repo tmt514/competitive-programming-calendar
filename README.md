@@ -1,2 +1,3 @@
-# competitive-programming-calendar
-Collaboration Blogging Calendar
+# 共同寫作月曆
+
+這是為 ICPC 比賽同好們準備的共同寫作月曆，透過大家認領每一天的文章，達到互相交流與分享的目的！任何內容都可以唷，只要與程式設計競賽相關就可以了！
