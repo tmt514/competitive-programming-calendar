@@ -20,6 +20,24 @@ body {
   flex: 1;
   justify-content: center;
 }
+.chinese-heading {
+  font-size: 500%;
+  text-align: center;
+}
+.english-heading {
+  text-align: center;
+  color: #633;
+  margin-top: -40px;
+  padding-bottom: 20px;
+}
+.header-box {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  max-width: 1120px;
+  min-width: 600px;
+  justify-content: center;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Helvetica, sans-serif;
