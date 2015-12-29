@@ -5,6 +5,12 @@ GIT
     semantic-ui-sass (2.1.6.0)
       sass (>= 3.2)
 
+GIT
+  remote: git://github.com/eventmachine/eventmachine.git
+  revision: 076a526915dc1eb19bd6d349e7aaf8c92909ef2c
+  specs:
+    eventmachine (1.0.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,7 +65,6 @@ GEM
     daemons (1.1.9)
     debug_inspector (0.0.2)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
@@ -186,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  eventmachine!
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook
