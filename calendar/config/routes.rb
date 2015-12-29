@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'calendar#index'
-  get 'calendar', to: 'calendar#index'
-  get 'calendar/:year/:month', to: 'calendar#show'
+  get 'calendar', to: 'calendar#index', as: :calendar_default
+  get 'calendar/:year/:month', to: 'calendar#show', as: :calendar
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
-
+  get 'entry/:id/destroy', to: 'entries#destroy', as: :entry_destroy
   post 'entry/create', to: 'entries#create', as: :entries
 
 

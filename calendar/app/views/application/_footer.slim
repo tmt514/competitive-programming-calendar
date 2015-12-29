@@ -1,0 +1,25 @@
+
+.footer-left
+  p 這裡放 Logo，連到 FB page
+
+.footer-middle
+  p
+    | | 如何使用 |
+    a(href='https://github.com/tmt514/competitive-programming-calendar/issues')
+      |  回報錯誤
+    |  |
+    - if current_user
+      a(href='/logout')
+        |  登出
+    - else
+      a(href='/auth/facebook')
+        |  
+        i.facebook.square.icon.large110
+        | 登入
+    |  |
+
+.footer-right
+  p
+    a(href='https://github.com/tmt514/competitive-programming-calendar')
+      i.icon.github
+    |  maintained by tmt514

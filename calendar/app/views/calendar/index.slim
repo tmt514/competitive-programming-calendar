@@ -74,7 +74,8 @@
       input#entryId(name="entry_id" type="hidden")
       .field
         label 認領日期
-        input#targetDateInput(name="entry[target]" type="date")
+        p#targetDateShow 2015 年 12 月 31 日
+        input#targetDateInput(name="entry[target]" type="hidden")
       .field
         label 訊息/主題
         textarea#messageInput(name="entry[message]")
@@ -84,4 +85,5 @@
     .actions
       .ui.approve.blue.button(type="submit") 新增
       .ui.cancel.button(type="cancel") 取消
+      a#deleteButton.ui.red.button(href="#") 刪除
 

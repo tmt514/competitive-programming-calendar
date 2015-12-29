@@ -2,10 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+make_date_string = (d) ->
+  return d
+
 $(document).ready( ->
+  console.log('here!')
   $('button').click( ->
     d = $(this).data('date')
     $('#targetDateInput').val(d)
+    $('#targetDateShow').text(make_date_string(d))
+    $('#deleteButton').hide()
     $('#entryId').val('')
     $('.modal').modal({
       blurring: true,
@@ -31,9 +37,16 @@ $(document).ready( ->
     emsg = entry.find('.entry-message').data('msg')
     eurl = entry.find('.entry-message').data('url')
     
-    console.log(eid)
     $('#entryId').val(eid.substring(6))
     $('#targetDateInput').val(edate)
+    $('#targetDateShow').text(make_date_string(edate))
+    $('#deleteButton').attr('href', "/entry/#{eid.substring(6)}/destroy")
+    $('#deleteButton').show()
+    $('#deleteButton').unbind('click')
+    $('#deleteButton').click(((eid) ->
+      window.location.href="/entry/#{eid}/destroy"
+      return false
+    ).bind(null, eid.substring(6)))
     $('#messageInput').val(emsg)
     $('#urlInput').val(eurl)
     $('.modal').modal({
@@ -43,4 +56,5 @@ $(document).ready( ->
         return false
     }).modal('show')
   )
+  console.log('haha', new Date())
 )
