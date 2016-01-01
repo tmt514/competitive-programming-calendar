@@ -9,7 +9,11 @@
     .calendar-title
       .item-6
         h2
+          a(href="#{calendar_url(year: @prev_month.year, month: @prev_month.month)}")
+            i.caret.left.icon
           | #{@year} 年 #{@month} 月
+          a(href="#{calendar_url(year: @next_month.year, month: @next_month.month)}")
+            i.caret.right.icon
       .login-box
         - if current_user == nil
           p
@@ -30,7 +34,11 @@
         - for obj in week do
           .calendar-day(class="weekday-#{obj[:date].cwday} #{obj[:date].month == @month ? 'thismonth' : 'othermonth'}" data-entry="entry-#{obj[:entry] ? obj[:entry].id : 'none'}")
             .daynum
-              span #{obj[:date].day}
+              .theday
+                span #{obj[:date].day}
+              /.memo-list
+                i.tags.icon
+                i.calendar.icon
             .avatar
               - if obj[:entry]
                 img.entry-img(src="#{obj[:entry].user.image}")

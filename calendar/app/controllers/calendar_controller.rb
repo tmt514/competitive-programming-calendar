@@ -42,6 +42,9 @@ class CalendarController < ApplicationController
       end
     end
 
+    # get prev and next month url
+    @prev_month = Date.new(@year, @month, 1) - 1.month
+    @next_month = Date.new(@year, @month, 1) + 1.month
     @new_entry = Entry.new()
     render :index
   end

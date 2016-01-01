@@ -91,6 +91,15 @@ h1, h2, h3, h4, h5, h6 {
   
   .daynum {
     flex: 0 1 auto;
+    display: flex;
+    padding-bottom: 12px;
+    .theday {
+      flex: 1 1 0;
+    }
+    .memo-list {
+      font-size: 55%;
+      flex: 0 0 auto;
+    }
   }
   .avatar {
     display: flex;
