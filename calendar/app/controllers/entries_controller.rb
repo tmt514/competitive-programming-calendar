@@ -19,8 +19,8 @@ class EntriesController < ApplicationController
       return redirect_to calendar_url(year: target.year, month: target.month)
     end
 
-    if target < Date.today() - 3
-      puts "Too old date!"
+    if target < Date.today() - 3 or target > Date.today() + 1.year
+      puts "Out of Date"
       return redirect_to root_url
     end
 
@@ -58,6 +58,6 @@ class EntriesController < ApplicationController
   end
 
   def get_entry
-    params.fetch(:entry, {}).permit(:target, :message, :url)
+    params.fetch(:entry, {}).permit(:target, :message, :url, :status)
   end
 end

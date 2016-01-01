@@ -36,9 +36,10 @@
             .daynum
               .theday
                 span #{obj[:date].day}
-              /.memo-list
-                i.tags.icon
-                i.calendar.icon
+              /- if obj[:date].month == @month
+                .memo-list
+                  i.tags.icon
+                  i.calendar.icon
             .avatar
               - if obj[:entry]
                 img.entry-img(src="#{obj[:entry].user.image}")
@@ -80,6 +81,7 @@
   .content
     = form_for @new_entry, html: {class: 'ui form'} do |entry|
       input#entryId(name="entry_id" type="hidden")
+      input#entryStatus(name="entry[status]" type="hidden" value="blog")
       .field
         label 認領日期
         p#targetDateShow 2015 年 12 月 31 日
@@ -95,3 +97,6 @@
       .ui.cancel.button(type="cancel") 取消
       a#deleteButton.ui.red.button(href="#") 刪除
 
+
+javascript:
+  $(document).ready(function() { CalendarJS.init(); })

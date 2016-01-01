@@ -30,7 +30,7 @@ class CalendarController < ApplicationController
     for w in 0..5
       week = []
       for i in 0..6
-        entry = Entry.where("target >= :today AND target < :tomorrow", {today: now, tomorrow: now+1}).first
+        entry = Entry.blogs.where("target >= :today AND target < :tomorrow", {today: now, tomorrow: now+1}).first
         entry = nil if now.month != @month
         @total_count += 1 if now.month == @month
         @entries << entry if entry != nil
