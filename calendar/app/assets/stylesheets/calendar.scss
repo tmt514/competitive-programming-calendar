@@ -181,19 +181,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .entry-date {
-  flex: 1 1 0;
+  flex: 0 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 8%;
   span {
     flex: 0 1 auto;
   }
 }
 .entry-author {
-  flex: 3 1 0;
+  flex: 0 1 auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  min-width: 25%;
+  max-width: 25%;
   img {
     border-radius: 50%;
     height: 24px;

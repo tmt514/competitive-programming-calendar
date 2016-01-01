@@ -27,6 +27,6 @@ module ApplicationHelper
 
   require 'uri'
   def is_valid_url(url)
-    return (url != nil and url =~ /\A#{URI::regexp}\z/)
+    return (url != nil and URI.encode(url) =~ /\A#{URI::regexp}\z/)
   end
 end

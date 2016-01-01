@@ -69,7 +69,7 @@
           - if is_valid_url(entry.url)
             .url
               i.linkify.icon
-              a(href="#{entry.url}" target="_blank") #{entry.url}
+              a(href="#{URI.encode(entry.url)}" target="_blank") #{entry.url}
         .entry-edit
           - if current_user != nil and current_user.id == entry.user.id
             i.large.edit.icon.edit-entry-icon(data-entryid="entry-#{entry.id}")
