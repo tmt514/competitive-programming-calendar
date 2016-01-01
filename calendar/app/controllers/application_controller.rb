@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     if Rails.env.production?
-      { host: 'blog.icpc.tw' }
+      { host: 'blog.icpc.tw', port: nil }
     else
       {}
     end
