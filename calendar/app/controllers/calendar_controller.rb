@@ -11,8 +11,8 @@ class CalendarController < ApplicationController
     @month = params[:month].to_i
     
     # check valid year month 
-    if @year >= 2017 or @year <= 2010
-      raise ActionController::RoutingError.new('Not Found')
+    if @year >= 2017 or @year <= 2013
+      return redirect_to root_url
     end
 
     if @month >= 13 or @month <= 0
