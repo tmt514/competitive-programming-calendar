@@ -16,11 +16,12 @@
             i.caret.right.icon
       .login-box
         - if current_user == nil
-          p
+          div
             a(href="/auth/facebook")
               img.login-btn(src="https://www.facebookbrand.com/img/fb-art.jpg")
+          .nonlogin-arrow
         - else
-          p
+          div
             img.login-btn(src="#{current_user.image}")
             span
               | #{current_user.name}
@@ -63,14 +64,25 @@
         .entry-author
           img(src="#{entry.user.image}")
           span #{entry.user.displayname}
-        .entry-message(data-msg="#{entry.message}" data-url="#{entry.url}")
+        .entry-message(data-msg="#{entry.message}" data-url="#{is_before_the_end_of_today(entry.target) or current_user.id == entry.user.id ? entry.url : ""}")
           .msg
             i.comment.icon
             span #{entry.message}
           - if is_valid_url(entry.url)
             .url
               i.linkify.icon
-              a(href="#{URI.encode(entry.url)}" target="_blank") #{entry.url}
+              - if is_before_the_end_of_today(entry.target)
+                a(href="#{URI.encode(entry.url)}" target="_blank") #{entry.url}
+              - else
+                span.url-hidden 連結隱藏中，敬請期待！
+          - elsif entry.user.id == current_user.id
+            .url
+              - if entry.url.empty?
+                i.linkify.icon.blue
+                span.url-empty 連結是空白的唷，請把它補上～
+              - else 
+                i.linkify.icon.red
+                span.url-broken 連結是壞掉的唷，請把它修好～
         .entry-edit
           - if current_user != nil and current_user.id == entry.user.id
             i.large.edit.icon.edit-entry-icon(data-entryid="entry-#{entry.id}")

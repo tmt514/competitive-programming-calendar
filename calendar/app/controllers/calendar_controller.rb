@@ -22,7 +22,7 @@ class CalendarController < ApplicationController
     # list of all entries
     @entries = []
     # make a calendar
-    today = Date.today()
+    @today = Date.today()
     @weeks = []
     @total_count = 0
     now = Date.new(@year, @month, 1)
@@ -34,7 +34,7 @@ class CalendarController < ApplicationController
         entry = nil if now.month != @month
         @total_count += 1 if now.month == @month
         @entries << entry if entry != nil
-        week << { date: now, entry: entry, open: (now >= today and now.month == @month) }
+        week << { date: now, entry: entry, open: (now >= @today and now.month == @month) }
         now += 1
       end
       if week.last[:date].month == @month or week.first[:date].month == @month

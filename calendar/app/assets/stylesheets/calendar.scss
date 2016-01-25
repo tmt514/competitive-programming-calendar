@@ -142,7 +142,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: flex-end;
   padding-right: 30px;
   align-self: center;
-  p {
+  /* will remove this p */
+  div {
     display: flex;
     flex: 0 1 auto;
     align-items: center;
@@ -160,6 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 .login-btn {
   width: 32px;
   height: 32px;
+  border-radius: 5px;
 }
 
 .entry-box {
@@ -243,4 +245,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 .url {
   overflow: hidden;
+}
+.url-hidden {
+  color: #888;
+}
+.url-broken {
+  color: #F88;
+}
+.url-empty {
+  color: #2185D0;
+}
+
+/* Animation for non-login button */
+
+.login-box {
+  display: flex;
+  position: relative;
+  align-content: center;
+}
+.nonlogin-arrow {
+  display: inline-block;
+  min-width: 50px;
+  min-height: 50px;
+  top: -50px;
+  right: 25px;
+  position: absolute;
+  -webkit-animation: bouncing-arrow 1s linear 0.5s infinite;
+  animation: bouncing-arrow 1s linear 0.5s infinite;
+  background-image: url(http://www.clipartbest.com/cliparts/KTj/dXq/KTjdXqbTq.png);
+  background-size: cover;
+}
+
+@keyframes bouncing-arrow {
+  0%, 10%, 90%, 100% { top: -75px; }
+  20%, 80% { top: -73px; }
+  30%, 70% { top: -69px; }
+  40%, 60% { top: -63px; }
+  50% { top: -55px; }
 }
