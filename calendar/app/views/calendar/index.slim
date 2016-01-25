@@ -64,7 +64,7 @@
         .entry-author
           img(src="#{entry.user.image}")
           span #{entry.user.displayname}
-        .entry-message(data-msg="#{entry.message}" data-url="#{is_before_the_end_of_today(entry.target) or current_user.id == entry.user.id ? entry.url : ""}")
+        .entry-message(data-msg="#{entry.message}" data-url="#{is_before_the_end_of_today(entry.target) or is_this_user_login(entry.user.id) ? entry.url : ""}")
           .msg
             i.comment.icon
             span #{entry.message}
@@ -75,7 +75,7 @@
                 a(href="#{URI.encode(entry.url)}" target="_blank") #{entry.url}
               - else
                 span.url-hidden 連結隱藏中，敬請期待！
-          - elsif entry.user.id == current_user.id
+          - elsif is_this_user_login(entry.user.id)
             .url
               - if entry.url.empty?
                 i.linkify.icon.blue
@@ -84,7 +84,7 @@
                 i.linkify.icon.red
                 span.url-broken 連結是壞掉的唷，請把它修好～
         .entry-edit
-          - if current_user != nil and current_user.id == entry.user.id
+          - if is_this_user_login(entry.user.id)
             i.large.edit.icon.edit-entry-icon(data-entryid="entry-#{entry.id}")
             
 .ui.modal

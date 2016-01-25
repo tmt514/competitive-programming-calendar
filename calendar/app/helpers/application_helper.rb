@@ -32,4 +32,8 @@ module ApplicationHelper
   def is_before_the_end_of_today(date)
     return date <= Date.today() + 1.days
   end
+
+  def is_this_user_login(id)
+    return (current_user != nil and current_user.id == id)
+  end
 end
