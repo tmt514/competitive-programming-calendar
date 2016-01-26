@@ -64,7 +64,7 @@
         .entry-author
           img(src="#{entry.user.image}")
           span #{entry.user.displayname}
-        .entry-message(data-msg="#{entry.message}" data-url="#{is_before_the_end_of_today(entry.target) or is_this_user_login(entry.user.id) ? entry.url : ""}")
+        .entry-message(data-msg="#{entry.message}" data-url="#{(is_before_the_end_of_today(entry.target) or is_this_user_login(entry.user.id)) ? entry.url : ""}")
           .msg
             i.comment.icon
             span #{entry.message}
