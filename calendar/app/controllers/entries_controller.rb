@@ -19,7 +19,8 @@ class EntriesController < ApplicationController
       return redirect_to calendar_url(year: target.year, month: target.month)
     end
 
-    if target < Date.today() - 3 or target > Date.today() + 1.year
+    # this filter only applies to newly created entries.
+    if entry.id == nil and (target < Date.today() - 3 or target > Date.today() + 1.year)
       puts "Out of Date"
       return redirect_to root_url
     end

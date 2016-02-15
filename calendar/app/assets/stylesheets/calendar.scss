@@ -180,6 +180,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #F5F5F5;
   font-size: 130%;
   color: #555;
+  overflow: hidden;
+  position: relative;
 }
 
 .entry-date {
@@ -228,6 +230,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .entry-edit {
   flex: 0 1 auto;
+  align-self: center;
+  position: absolute;
+  right: 0;
 }
 .watching {
   background-color: #DDEEDD;
