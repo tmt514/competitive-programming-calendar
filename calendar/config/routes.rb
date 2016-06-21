@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'entry/:id/destroy', to: 'entries#destroy', as: :entry_destroy
   post 'entry/create', to: 'entries#create', as: :entries
 
+  get 'profile', to: 'userprofiles#show', as: :profile
+  post 'profile/update', to: 'userprofiles#ajax_update', as: :profile_update
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
