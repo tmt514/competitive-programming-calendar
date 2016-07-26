@@ -55,3 +55,4 @@ class CalendarJS
     console.log('haha', new Date())
 
 window.CalendarJS = CalendarJS
+

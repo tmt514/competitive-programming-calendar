@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-toUpdate = (url, data, callback) ->
-  $.post(url, data, callback)
+toUpdate = (url, data, callback, ret) ->
+  $.post(url, data, callback.bind(null, ret))
 
 
 isValidCodeforcesAccount = (name, handle, success) ->
@@ -36,8 +36,11 @@ $(document).ready( ->
       url = $(form).data('action')
 
 
-      success = ((btn, name, value, ret) ->
+      success = ((btn, name, value, ret, data) ->
+        rank = ret.result[0].rank
         $("span[data-value-for='#{name}']").html(value)
+        $("span[data-value-for='#{name}']").removeClass()
+        $("span[data-value-for='#{name}']").addClass("cf #{rank}")
         $(btn).removeClass('loading')
         $(btn).attr('disabled', false)
         $("span[data-warning-for='#{name}']").html("<font color='green'>更新成功！</font>")

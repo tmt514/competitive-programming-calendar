@@ -13,7 +13,7 @@
           i.icon.user
       .entry-author
         span Codeforces::
-        span(data-value-for='Handle:CF') #{@profile['Handle:CF']}
+        span(class="cf #{@profile['CF:rank']}" data-value-for='Handle:CF') #{@profile['Handle:CF']}
       .entry-message
         .ui.form
           form.profile-update.no-margin-bottom(data-action="#{url_for(action: :ajax_update)}")
