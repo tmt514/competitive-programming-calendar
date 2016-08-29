@@ -32,7 +32,11 @@ class ChallengeController < ApplicationController
   def training
     topic = params.fetch(:topic, "")
     if topic == 'data-structures'
-      @list = YAML.load_file('db/training/data-structures.yml')
+      if Rails.env.production?
+        @list = YAML.load_file('/sqlite-data/training/data-structures.yml')
+      else
+        @list = YAML.load_file('db/training/data-structures.yml')
+      end
     end
 
     @list.each do |stage|

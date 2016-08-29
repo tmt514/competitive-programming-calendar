@@ -18,7 +18,10 @@
         .ui.form
           form.profile-update.no-margin-bottom(data-action="#{url_for(action: :ajax_update)}")
             .inline.field
-              input(type='hidden' name='profile[name]' value='Handle:CF')
-              input(name='profile[value]' value="#{@profile['Handle:CF']}")
+              input.profile-input(type='hidden' name='profile[name]' value='Handle:CF')
+              input.profile-input(name='profile[value]' value="#{@profile['Handle:CF']}")
               button.ui.button 更新
               span(data-warning-for='Handle:CF')
+
+javascript:
+  $(document).ready(function() { UserProfileJS.perform_initialization(); })

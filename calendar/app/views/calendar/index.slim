@@ -49,7 +49,7 @@
               - if obj[:entry]
                 span #{obj[:entry].user.displayname}
               - elsif current_user != nil and obj[:open] == true
-                button.ui.icon.button(data-date="#{obj[:date]}")
+                button.ui.icon.button(data-date="#{obj[:date]}" class="c-btn")
                   i.write.icon
                   | #{hash_decoy_text(obj[:date])}
 
@@ -114,4 +114,4 @@
 
 
 javascript:
-  $(document).ready(function() { CalendarJS.init(); })
+  $(document).ready(function() { CalendarJS.perform_initialization(); })
