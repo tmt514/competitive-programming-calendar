@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   post 'challenge/create', to: 'challenge#ajax_create', as: :challenge_create
   get 'ajax/cf/get_title/:pid', to: 'challenge#ajax_cf_get_title', as: :cf_get_title
 
+  
+
+
+  # Special Pages
+  get 'training/:topic', to: 'challenge#training', as: :training
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

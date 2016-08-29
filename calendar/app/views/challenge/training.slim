@@ -1,0 +1,34 @@
+.content-row
+  .header-box
+    h1.padding-30.chinese-heading 競程日記 - 訓練篇
+    h1.english-heading The Collaborative Blog of Competitive Programming
+- @list.each do |stage|
+  .content-row
+    .entry-box
+      .calendar-title
+        .item-6
+          h2 #{stage['title']}
+      - stage['articles'].each do |article|
+        .entry
+          .entry-date
+          .entry-author
+            i.newspaper.icon
+            span  參考文章
+          .entry-message
+            .msg
+              i.comment.icon
+              span= article['title']
+            .url
+              i.linkify.icon
+              a(href="#{article['link']}")
+                = article['link']
+      .entry
+        .entry-date
+        .entry-author
+          i.warning.icon.red
+          span  挑戰與練習 (
+          span.currentnum 0
+          span= "/#{stage['challenges'].length})"
+        .entry-message.training
+          - stage['challenges'].each do |prob|
+            == challenge_info(prob[:data])

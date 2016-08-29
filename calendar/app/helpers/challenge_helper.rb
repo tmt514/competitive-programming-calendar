@@ -1,4 +1,5 @@
 module ChallengeHelper
+
   def oj(oj)
     return "Codeforces" if oj == "cf"
     return "X"
@@ -25,7 +26,7 @@ module ChallengeHelper
     end
     return "<div class='challenge' data-challenge='y' data-challenge-id='#{cha.id}'>" +
            icon_trophy + 
-           "<span>(#{cha.points} pts) " +
+           (cha.points != nil ? "<span>(#{cha.points} pts) " : "") +
            "<a href='#{gen_link(cha)}' target='blank'>" +
            "#{oj(cha.oj)} #{cha.pid} - #{cha.title}" +
            "</a></span>" +
