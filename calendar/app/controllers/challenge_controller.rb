@@ -46,7 +46,7 @@ class ChallengeController < ApplicationController
         cha = Challenge.where(pid: info[:pid], oj: info[:oj]).first
         if !cha
           info[:title] = quick_get_title(info[:contestId], info[:index])
-          cha = Challenge.new(info)
+          cha = Challenge.new({oj: info[:oj], pid: info[:pid], title: info[:title]})
           cha.save!
         end
         prob[:data] = cha
