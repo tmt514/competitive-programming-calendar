@@ -35,6 +35,7 @@ class ChallengeController < ApplicationController
       begin
         @list = YAML.load_file('/sqlite-data/training/data-structures.yml')
       rescue => ex
+        return render plain: ex.message
         @list = YAML.load_file('db/training/data-structures.yml')
       end
     end
