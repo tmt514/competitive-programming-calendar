@@ -35,7 +35,6 @@ class ChallengeController < ApplicationController
       begin
         @list = YAML.load_file('/sqlite-data/training/data-structures.yml')
       rescue => ex
-        return render plain: ex.message
         @list = YAML.load_file('db/training/data-structures.yml')
       end
     end
@@ -46,7 +45,7 @@ class ChallengeController < ApplicationController
         info = parse_ojpid(ojpid)
         cha = Challenge.where(pid: info[:pid], oj: info[:oj]).first
         if !cha
-          info[:title] = quick_get_title(s[1], s[2])
+          info[:title] = quick_get_title(info[:contestId], info[:index])
           cha = Challenge.new(info)
           cha.save!
         end
