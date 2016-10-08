@@ -22,5 +22,5 @@ test:
 
 production:
   <<: *default
-  database: /efs/twicpc/production.sqlite3
-  #database: /sqlite-data/production.sqlite3
+  database: /sqlite-data/production.sqlite3
+  #database: /efs/twicpc/production.sqlite3
