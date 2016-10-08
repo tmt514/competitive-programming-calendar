@@ -2,7 +2,7 @@
   .header-box
     h1.padding-30.chinese-heading 競程日記 - 訓練篇
     h1.english-heading The Collaborative Blog of Competitive Programming
-- @list.each do |stage|
+- @list.each_with_index do |stage, index|
   .content-row
     .entry-box
       .calendar-title
@@ -27,8 +27,10 @@
         .entry-author
           i.warning.icon.red
           span  挑戰與練習 (
-          span.currentnum 0
-          span= "/#{stage['challenges'].length})"
-        .entry-message.training
+          span.currentnum(data-stage="#{index}") 0
+          span= "/"
+          span.maxnum(data-stage="#{index}")= stage['challenges'].length
+          span )
+        .entry-message.training(data-stage="#{index}")
           - stage['challenges'].each do |prob|
             == challenge_info(prob[:data])

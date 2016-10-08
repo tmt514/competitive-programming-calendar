@@ -1,5 +1,28 @@
 class ChallengeController < ApplicationController
 
+  def handle
+    if session[:user_id] == nil
+      return redirect_to root_path
+    end
+    if user.role != 'admin'
+      return head 403
+    end
+    @challenges = Challenges.all
+  end
+
+  def ajax_update_pts
+    if session[:user_id] == nil
+      return redirect_to root_path
+    end
+    if user.role != 'admin'
+      return head 403
+    end
+    cid = param.fetch(:challenge_id, 0).to_i
+
+    # TODO HERE
+  end
+
+
   def show
     if session[:user_id] == nil
       return redirect_to root_path
