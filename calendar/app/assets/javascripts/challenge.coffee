@@ -28,3 +28,20 @@ $(document).ready( ->
   )
 
 )
+
+
+
+# This is the training area
+class TrainingArea
+  @perform_initialization: ->
+    $(document).ready( ->
+      $('.currentnum').each( ->
+        index = $(this).data('stage')
+        @check_currentnum(index)
+      )
+    )
+
+  @check_currentnum: (stage) ->
+    obj = $('.currentnum')
+    all = $(".training[data-stage='#{stage}'] .challenge").length
+    solved = $(".training[data-stage='#{stage}'] .challenge")
