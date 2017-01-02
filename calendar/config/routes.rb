@@ -8,6 +8,22 @@ Rails.application.routes.draw do
   get 'entry/:id/destroy', to: 'entries#destroy', as: :entry_destroy
   post 'entry/create', to: 'entries#create', as: :entries
 
+  get 'profile', to: 'userprofiles#show', as: :profile
+  post 'profile/update', to: 'userprofiles#ajax_update', as: :profile_update
+  
+  # Special Pages
+  get 'training/:topic', to: 'challenge#training', as: :training
+
+  # Entry Challenges (admin)
+  get 'challenge', to: 'challenge#show', as: :challenge
+  post 'challenge/create', to: 'challenge#ajax_create', as: :challenge_create
+  get 'ajax/cf/get_title/:pid', to: 'challenge#ajax_cf_get_title', as: :cf_get_title
+
+  # Admin Manage Challenges
+  get 'admin/challenge', to: 'challenge#handle', as: :admin_challenge
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

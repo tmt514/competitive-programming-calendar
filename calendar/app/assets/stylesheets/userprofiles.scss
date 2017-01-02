@@ -1,0 +1,52 @@
+// Place all the styles related to the userprofiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.cf.legendary.grandmaster {
+  color: red;
+  &::first-letter {
+    color: black;
+  }
+  font-weight: bold;
+}
+.cf.international.grandmaster {
+  color: red;
+  font-weight: bold;
+}
+.cf.grandmaster {
+  color: red;
+  font-weight: bold;
+}
+.cf.international.master {
+  color: orange;
+  font-weight: bold;
+}
+
+.cf.master {
+  color: orange;
+  font-weight: bold;
+}
+.cf.candidate.master {
+  color: #a0a;
+  font-weight: bold;
+}
+.cf.expert {
+  color: blue;
+  font-weight: bold;
+}
+.cf.specialist {
+  color: cyan;
+  font-weight: bold;
+}
+.cf.pupil {
+  color: green;
+  font-weight: bold;
+}
+.cf.newbie {
+  color: gray;
+  font-weight: bold;
+}

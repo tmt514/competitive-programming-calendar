@@ -1,0 +1,34 @@
+.content-row
+  .header-box
+    h1.padding-30.chinese-heading 競程日記
+    h1.english-heading The Collaborative Blog of Competitive Programming
+.content-row
+  .entry-box
+    .calendar-title
+      .item-6
+        h2 管理任務
+    - @entries.each do |entry|
+      .entry
+        .entry-date
+          span
+            = show_date(entry.target)
+        .entry-author
+          span =entry.user.displayname
+        .entry-message
+          - entry.challenges.each do |cha|
+            == challenge_info(cha)
+            /.challenge
+              i.icon.trophy
+              span #{cha.oj} #{cha.pid} #{cha.title} #{cha.points}
+          .challenge
+            .ui.form
+              form.create-challenge.no-margin-bottom(data-action="#{url_for(action: :ajax_create)}")
+                .inline.field
+                  input(type='hidden' name='challenge[entry_id]' value="#{entry.id}")
+                  select(name='challenge[oj]' value="cf")
+                    option(value="cf") Codeforces
+                  input.pid-field(name='challenge[pid]' value="")
+                  input(name='challenge[title]' value="")
+                  input(name='challenge[points]' value="1" type="number" min="0" max="10")
+                  button.ui.button 新增
+                  span(data-warning-for="#{entry.id}")

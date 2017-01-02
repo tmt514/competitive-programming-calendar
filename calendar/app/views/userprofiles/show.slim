@@ -1,0 +1,27 @@
+.content-row
+  .header-box
+    h1.padding-30.chinese-heading 競程日記
+    h1.english-heading The Collaborative Blog of Competitive Programming
+.content-row
+  .entry-box
+    .calendar-title
+      .item-6
+        h2 使用者設定
+    .entry
+      .entry-date
+        span
+          i.icon.user
+      .entry-author
+        span Codeforces::
+        span(class="cf #{@profile['CF:rank']}" data-value-for='Handle:CF') #{@profile['Handle:CF']}
+      .entry-message
+        .ui.form
+          form.profile-update.no-margin-bottom(data-action="#{url_for(action: :ajax_update)}")
+            .inline.field
+              input.profile-input(type='hidden' name='profile[name]' value='Handle:CF')
+              input.profile-input(name='profile[value]' value="#{@profile['Handle:CF']}")
+              button.ui.button 更新
+              span(data-warning-for='Handle:CF')
+
+javascript:
+  $(document).ready(function() { UserProfileJS.perform_initialization(); })

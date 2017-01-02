@@ -18,13 +18,14 @@
         - if current_user == nil
           div
             a(href="/auth/facebook")
-              img.login-btn(src="https://www.facebookbrand.com/img/fb-art.jpg")
+              img.login-btn(src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png")
           .nonlogin-arrow
         - else
           div
-            img.login-btn(src="#{current_user.image}")
-            span
-              | #{current_user.name}
+            a(href="/profile")
+              img.login-btn(src="#{current_user.image}")
+              span
+                | #{current_user.name}
     .calendar-week
       - for day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] do
         .calendar-header(class="#{day}")
@@ -48,7 +49,7 @@
               - if obj[:entry]
                 span #{obj[:entry].user.displayname}
               - elsif current_user != nil and obj[:open] == true
-                button.ui.icon.button(data-date="#{obj[:date]}")
+                button.ui.icon.button(data-date="#{obj[:date]}" class="c-btn")
                   i.write.icon
                   | #{hash_decoy_text(obj[:date])}
 
@@ -83,6 +84,8 @@
               - else 
                 i.linkify.icon.red
                 span.url-broken 連結是壞掉的唷，請把它修好～
+          - for cha in entry.challenges do
+            == challenge_info(cha)
         .entry-edit
           - if is_this_user_login(entry.user.id)
             i.large.edit.icon.edit-entry-icon(data-entryid="entry-#{entry.id}")
@@ -111,4 +114,4 @@
 
 
 javascript:
-  $(document).ready(function() { CalendarJS.init(); })
+  $(document).ready(function() { CalendarJS.perform_initialization(); })

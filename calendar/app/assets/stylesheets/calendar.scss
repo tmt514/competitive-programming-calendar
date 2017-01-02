@@ -147,12 +147,18 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex: 0 1 auto;
     align-items: center;
-    span {
+    a {
+      display: flex;
+      flex: 0 1 auto;
+      align-items: center;
+      color: black;
+    }
+    & span {
       padding-left: 10px;
       font-size: 100%;
       flex: 0 1 auto;
     }
-    img {
+    & img {
       flex: 0 1 auto;
       border-radius: 5px;
     }
@@ -287,4 +293,9 @@ h1, h2, h3, h4, h5, h6 {
   30%, 70% { top: -69px; }
   40%, 60% { top: -63px; }
   50% { top: -55px; }
+}
+
+/* Color for Trophy */
+.icon-success {
+  color: #1EBC30;
 }

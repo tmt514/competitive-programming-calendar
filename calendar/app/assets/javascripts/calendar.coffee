@@ -6,9 +6,9 @@ make_date_string = (d) ->
   return d
 
 class CalendarJS
-  @init: ->
+  @perform_initialization: ->
     console.log('here!')
-    $('button').click( ->
+    $('button.c-btn').click( ->
       d = $(this).data('date')
       $('#targetDateInput').val(d)
       $('#targetDateShow').text(make_date_string(d))
@@ -55,3 +55,4 @@ class CalendarJS
     console.log('haha', new Date())
 
 window.CalendarJS = CalendarJS
+
