@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
     @month = params[:month].to_i
     
     # check valid year month 
-    if @year >= 2017 or @year <= 2013
+    if @year >= 2018 or @year <= 2014
       return redirect_to root_url
     end
 
